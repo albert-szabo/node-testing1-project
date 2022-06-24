@@ -6,8 +6,13 @@
  * EXAMPLE
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
-function trimProperties(obj) {
-  // ✨ implement
+
+function trimProperties(object) {
+  const result = {};
+  for (let property in object) {
+    result[property] = object[property].trim();
+  }
+  return result;
 }
 
 /**
@@ -18,6 +23,7 @@ function trimProperties(obj) {
  * EXAMPLE
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
+
 function trimPropertiesMutation(obj) {
   // ✨ implement
 }
@@ -30,6 +36,7 @@ function trimPropertiesMutation(obj) {
  * EXAMPLE
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
+
 function findLargestInteger(integers) {
   // ✨ implement
 }
@@ -111,6 +118,7 @@ class Car {
    * focus.drive(200) // returns 500
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
+
   drive(distance) {
     // ✨ implement
   }
@@ -126,6 +134,7 @@ class Car {
    * focus.drive(1) // returns 600 (no distance driven as tank is empty)
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
+
   refuel(gallons) {
     // ✨ implement
   }
@@ -144,6 +153,7 @@ class Car {
  *    // result is false
  * })
  */
+
 function isEvenNumberAsync(number) {
   // ✨ implement
 }
