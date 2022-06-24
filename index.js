@@ -116,10 +116,11 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
-    // ✨ initialize whatever other properties are needed
-  }
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; // car initiazes full of gas
+    this.tankSize = tankSize;
+    this.mpg = mpg;
+  };
 
   /**
    * [Exercise 6B] Car.prototype.drive adds miles to the odometer and consumes fuel according to mpg
@@ -136,8 +137,16 @@ class Car {
    */
 
   drive(distance) {
-    // ✨ implement
-  }
+    const range = this.tank * this.mpg;
+    if (distance <= range) {
+      this.odometer += distance;
+      this.tank -= (distance / this.mpg);
+    } else {
+      this.odometer += range;
+      this.tank = 0;
+    }
+    return this.odometer;
+  };
 
   /**
    * [Exercise 6C] Adds gallons to the tank
@@ -152,9 +161,15 @@ class Car {
    */
 
   refuel(gallons) {
-    // ✨ implement
+    const emptyCapacity = this.tankSize - this.tank;
+    if (gallons <= emptyCapacity) {
+      this.tank += gallons;
+    } else {
+      this.tank = this.tankSize;
+    }
+    return this.tank * this.mpg;
   }
-}
+};
 
 /**
  * [Exercise 7] Asynchronously resolves whether a number is even
